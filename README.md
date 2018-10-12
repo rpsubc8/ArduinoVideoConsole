@@ -2,7 +2,8 @@
 <h1>Retro diskmag EXILIUM port Arduino</h1>
 Video console emulate with Arduino
 
-Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)
+Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)<br>
+<img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola.png'>
 Parser emulator in Javascript, which allows you to generate a game with the different video modes:
  - 84x48 (framebuffer 4 and 8 colors) 
  - 84x64 (framebuffer 4 colors)
