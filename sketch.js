@@ -150,7 +150,7 @@ function print_char(x,y,c){
 }
 
 //Version optimizada solo para fuente nibble 4x5
-function print_char4x5(x,y,c){
+function print_char4x5(x,y,c,color){
  var codeChar=(c.charCodeAt()-65);
  if (codeChar<0) codeChar=32;
  var divEntera=Math.floor(codeChar>>1);
@@ -174,18 +174,22 @@ function print_char4x5(x,y,c){
    if ((aux&0x02)==0x02) aux_destino|=0x0C;
    if ((aux&0x04)==0x04) aux_destino|=0x30;
    if ((aux&0x08)==0x08) aux_destino|=0xC0;	  
-  }    
+  }
+  if (color==0){
+   aux_destino=~aux_destino;
+  }
   screen[offsetDestino]=aux_destino;
   offsetDestino+=ancho_byte_screen;
  }
- aux_destino=0xFF; 
+ if (color==0) aux_destino=0x00; 
+ else aux_destino=0xFF;
  screen[offsetDestino]=aux_destino;
 }
 
 //Version optimizada solo para fuente nibble 4x5
-function print_4x5(x,y,str){
+function print_4x5(x,y,str,color){
  for (var i=0;i<str.length;i++){
-  print_char4x5(x+(i*4),y,str.charAt(i));
+  print_char4x5(x+(i*4),y,str.charAt(i),color);
  }	 
 }
 
@@ -321,7 +325,11 @@ function ClearScreen(){
 
 function setup() {
  //createCanvas(710, 400);
- createCanvas(displayWidth, displayHeight);  
+ var cnv=createCanvas(displayWidth, displayHeight);
+ var x=84;
+ var y=0;
+ cnv.position(x,y);
+ //background(255, 0, 200);
 }
 
 function draw() {
@@ -338,14 +346,14 @@ function draw() {
  select_font(font_4x5_1bpp);
  //print_char(0,0,'A');
  //print_char4x5(0,0,'E');
- print_4x5(0,0, 'DISKMAG EXILIUM VERSI'); 
- print_4x5(0,6, '  SE TRATA DE UNA PRI');
- print_4x5(0,12,'MERA VERSION DISPONIB');
- print_4x5(0,18,'LE PARA DESCARGAR POR');
- print_4x5(0,24,'MEDIO DE INTERNET    ');
- print_4x5(0,30,'LOS CREADORES DE LA M');
- print_4x5(0,36,'MISMA NO SE HACEN RES');
- print_4x5(0,42,'PONSABLES DE LOS COME');
+ print_4x5(0,0, 'DISKMAG EXILIUM VERSI',0); 
+ print_4x5(0,6, '  SE TRATA DE UNA PRI',1);
+ print_4x5(0,12,'MERA VERSION DISPONIB',1);
+ print_4x5(0,18,'LE PARA DESCARGAR POR',1);
+ print_4x5(0,24,'MEDIO DE INTERNET    ',1);
+ print_4x5(0,30,'LOS CREADORES DE LA M',1);
+ print_4x5(0,36,'MISMA NO SE HACEN RES',1);
+ print_4x5(0,42,'PONSABLES DE LOS COME',1);
  
  PaintPantallaReal();
  stroke(0);
