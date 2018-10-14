@@ -1,7 +1,22 @@
 //const Uint8Array ima_disco_1bpp [2] = {1,2};
 
+var font; //TVOUT font global
 
-const ima_disco_1bpp=new Array( 64,40, 
+const cabecera_font=3;
+const cabecera_imagen=2;
+
+const font_4x5_1bpp=new Array(
+4,//Pixels ancho cada letra
+5,//Pixels alto cada letra
+20,//ancho en bytes de cada linea multiplo de 8, Es 156 pixels
+0xB3,0xB3,0x11,0x95,0x1D,0x57,0x55,0xB3,0xB3,0x91,0x55,0x55,0x51,0x17,0x1B,0xB3,0x39,0x19,0x1B,0xBF,
+0x55,0x55,0x77,0x75,0xBD,0x37,0x11,0x55,0x55,0x7B,0x55,0x55,0x5D,0x77,0xD5,0x3D,0xD5,0x77,0xD5,0x5F,
+0x53,0x75,0x33,0x51,0xBD,0x37,0x11,0x55,0x55,0xBB,0x55,0x1B,0x1B,0x7B,0xD5,0xBB,0xB5,0x33,0xDB,0x9F,
+0x15,0x55,0x77,0x55,0xB5,0x57,0x11,0x53,0x13,0xDB,0x51,0x15,0xB7,0x7D,0xD5,0xB7,0xD1,0xD5,0xB5,0xDF,
+0x53,0xB3,0x17,0x95,0x1B,0x51,0x15,0xB7,0x95,0x3B,0x1B,0x55,0xB1,0x1D,0x1B,0x11,0x3D,0x3B,0xBB,0xBF,
+);
+
+const ima_disco_1bpp=new Array( 64,40,
 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
 0xD9,0xD9,0x88,0xCA,0x8E,0xAB,0xAA,0xDF,
 0xAA,0xAA,0xBB,0xBA,0xDE,0x9B,0x88,0xAF,
@@ -81,12 +96,98 @@ const ima_disco_1bpp=new Array( 64,40,
 0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
  );*/
  
-const ancho_screen=84;
+const ancho_screen=84; //Con 2 bits de color es multiplo de 8 84*2=168/8=21 bytes por linea
 const alto_screen=48;
+const ancho_byte_screen=21; //Dividir (84*2)/8 para 2 bits de color
+const tope_byte_screen=1008; //ancho_byte_screen*alto_screen
+var screen=new Array(tope_byte_screen);
 //var screen = new Uint8Array((ancho_screen*alto_screen*2)/8);
-var screen = new Array((ancho_screen*alto_screen*2)/8);
+//var screen=new Array((ancho_screen*alto_screen*2)/8);
+//var screen=new Array(ancho_byte_screen*alto_screen);
 //var screen_real = new Uint8Array((ancho*alto)); //buffer pantalla real1
 //var buffer = new ArrayBuffer(8);
+
+//TVOUT select font
+function select_font(f){
+ font=f;
+}
+
+//TVOUT print char
+function print_char(x,y,c){
+ //c -= pgm_read_byte(font+2);
+ //bitmap(x,y,font,(c*pgm_read_byte(font+1))+3,pgm_read_byte(font),pgm_read_byte(font+1));
+ 
+ var codeChar=(c.charCodeAt()-65);
+ var divEntera=Math.floor((codeChar*font[0])/8);
+ var resto=((codeChar*font[0])%8);
+ //console.log('Entera '+divEntera);
+ //console.log('Resto '+resto);
+ var offsetDestino=(y*ancho_byte_screen)+(x*2/8);
+ //console.log('off '+offsetDestino);
+ var aux=0;
+ var aux_destino=0;
+ for (var i=0;i<(font[1]);i++){
+  aux=font[divEntera+(i*font[2])+cabecera_font];
+  //console.log(aux);
+  if ((aux&0x10)==0x10) aux_destino=0x03; else aux_destino=0; 
+  if ((aux&0x20)==0x20) aux_destino|=0x0C;
+  if ((aux&0x40)==0x40) aux_destino|=0x30; 
+  if ((aux&0x80)==0x80) aux_destino|=0xC0;  
+  screen[offsetDestino]=aux_destino;  
+  if ((font[0])>4)
+  {	  
+   if ((aux&0x01)==0x01) aux_destino=0x03; else aux_destino=0;
+   if ((aux&0x02)==0x02) aux_destino|=0x0C;
+   if ((aux&0x04)==0x04) aux_destino|=0x30;
+   if ((aux&0x08)==0x08) aux_destino|=0xC0;
+   screen[offsetDestino+1]=aux_destino;   
+  }  
+  
+  offsetDestino+=ancho_byte_screen;
+  //console.log('off '+offsetDestino);
+  //console.log(offsetDestino+(i*ancho_screen/8));
+ }
+}
+
+//Version optimizada solo para fuente nibble 4x5
+function print_char4x5(x,y,c){
+ var codeChar=(c.charCodeAt()-65);
+ if (codeChar<0) codeChar=32;
+ var divEntera=Math.floor(codeChar>>1);
+ var resto=(codeChar&1);
+ var offsetDestino=(y*ancho_byte_screen)+(x>>2);
+ var aux=0;
+ var aux_destino=0;
+ for (var i=0;i<5;i++){
+  if (codeChar==32)
+   aux=0xFF;
+  else
+   aux=font[divEntera+(i*font[2])+cabecera_font];
+  if (resto==0){
+   if ((aux&0x10)==0x10) aux_destino=0x03; else aux_destino=0;
+   if ((aux&0x20)==0x20) aux_destino|=0x0C;
+   if ((aux&0x40)==0x40) aux_destino|=0x30;
+   if ((aux&0x80)==0x80) aux_destino|=0xC0;
+  }
+  else{
+   if ((aux&0x01)==0x01) aux_destino=0x03; else aux_destino=0;
+   if ((aux&0x02)==0x02) aux_destino|=0x0C;
+   if ((aux&0x04)==0x04) aux_destino|=0x30;
+   if ((aux&0x08)==0x08) aux_destino|=0xC0;	  
+  }    
+  screen[offsetDestino]=aux_destino;
+  offsetDestino+=ancho_byte_screen;
+ }
+ aux_destino=0xFF; 
+ screen[offsetDestino]=aux_destino;
+}
+
+//Version optimizada solo para fuente nibble 4x5
+function print_4x5(x,y,str){
+ for (var i=0;i<str.length;i++){
+  print_char4x5(x+(i*4),y,str.charAt(i));
+ }	 
+}
 
 
 function byteString(n) {
@@ -98,11 +199,10 @@ function byteString(n) {
 
 function Put_Imagen1to2(imagen)
 {
- var ancho= ((ima_disco_1bpp[0])>>3);
+ var ancho=((ima_disco_1bpp[0])>>3);
  //console.log(ancho);
  var alto= ima_disco_1bpp[1];
- //console.log(alto);
- var cont_imagen=2;
+ //console.log(alto); 
  var cont_destino=0;
  var aux;
  var aux_destino; 
@@ -113,7 +213,7 @@ function Put_Imagen1to2(imagen)
  
  for (var i=0;i<tope;i++)
  {
-  aux= ima_disco_1bpp[i+cont_imagen];
+  aux= ima_disco_1bpp[i+cabecera_imagen];
   //cad=cad+'|'+byteString(aux);
   //cad=cad+byteString(aux);
   if ((aux&0x10)==0x10) aux_destino=0x03; else aux_destino=0; 
@@ -130,7 +230,8 @@ function Put_Imagen1to2(imagen)
   cont_destino++;
   if (((i+1)%ancho==0)&&(i>0)){
    linea_screen++;
-   cont_destino=(linea_screen*21);
+   //cont_destino=(linea_screen*21);
+   cont_destino=(linea_screen*ancho_byte_screen);
    //cad+='\n';
   }
  }
@@ -214,26 +315,39 @@ function PaintPantallaReal(){
 }*/
 
 function ClearScreen(){
- var tope= ancho_screen*alto_screen*2/8; //1008
- for (var i=0;i<tope;i++)
- {
-	 screen[i]=0;
- }
+ //var tope=ancho_screen*alto_screen*2/8; //1008 
+ for (var i=0;i<tope_byte_screen;i++) screen[i]=0;
 }
 
 function setup() {
-  //createCanvas(710, 400);
-  createCanvas(displayWidth, displayHeight);  
+ //createCanvas(710, 400);
+ createCanvas(displayWidth, displayHeight);  
 }
 
 function draw() {
-  background(200);
-
-  fill(127);
-  stroke(0);
-  
-  ClearScreen();
-  //Prueba();
-  Put_Imagen1to2(ima_disco_1bpp);
-  PaintPantallaReal();
+ //var escalaX=displayWidth/360;
+ //var escalaY=displayWidth/340;
+ //scale(escalaX,escalaY);
+ background(200);
+ fill(127);
+ stroke(0);  
+ ClearScreen();
+ //Prueba();
+ //Put_Imagen1to2(ima_disco_1bpp);
+ 
+ select_font(font_4x5_1bpp);
+ //print_char(0,0,'A');
+ //print_char4x5(0,0,'E');
+ print_4x5(0,0, 'DISKMAG EXILIUM VERSI'); 
+ print_4x5(0,6, '  SE TRATA DE UNA PRI');
+ print_4x5(0,12,'MERA VERSION DISPONIB');
+ print_4x5(0,18,'LE PARA DESCARGAR POR');
+ print_4x5(0,24,'MEDIO DE INTERNET    ');
+ print_4x5(0,30,'LOS CREADORES DE LA M');
+ print_4x5(0,36,'MISMA NO SE HACEN RES');
+ print_4x5(0,42,'PONSABLES DE LOS COME');
+ 
+ PaintPantallaReal();
+ stroke(0);
+ //line(342, 10, 342, 200);
 }
