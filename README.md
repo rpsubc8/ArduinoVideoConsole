@@ -1,4 +1,4 @@
-# ArduinoVideoConsole
+# ArduinoVideoConsole demoscene
 <h1>Retro diskmag EXILIUM port Arduino</h1>
 Video console emulate with Arduino
 
@@ -6,6 +6,24 @@ Video console emulate with Arduino
 You choose to use the Arduinocade hardware (https://github.com/rossumur/Arduinocade), and modify the libraries and utilities:
 The sprite editing tool is allowed to use the background color with the right mouse button, while the left is the foreground. This allows you to draw more quickly.
 
+<h1>Hardware</h1>
+ - Arduino atmega328
+ - crystal 28.6363 Mhz
+ - crystal 16 Mhz
+ - switch crystals
+ - i2C eprom 24LC256
+ - 1 rca video
+ - 1 jack audio output mono 
+ - gamepad atari 5 buttons
+ - gamepad nes
+ - gamepad snes 
+ - audio input 1wire capacitor to transfer program
+ - bootloader i2c eprom
+ - 16 colours up 27 colours opcional
+ - NTSC colour
+ - tilemap 40x24
+ - sprites 4x8 pixels
+ - resolution 160x192
 
 
 <h1>First prototype (deprecated)</h1>
