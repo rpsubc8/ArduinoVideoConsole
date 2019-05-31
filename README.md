@@ -33,14 +33,16 @@ Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC 
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola2.png'>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola3.png'><br>
 Parser emulator in Javascript, which allows you to generate a game with the different video modes:
- - 84x48 (framebuffer 4 and 8 colors) 
- - 84x64 (framebuffer 4 colors)
- - 96x64 (framebuffer 4 colors) 
- - 96x96 (tiles)
- - 128x96 (tiles)
- - 128x128 (tiles)
- - 256x128 (tiles)
- - 480x240 (tiles)
+<ul>
+ <li>84x48 (framebuffer 4 and 8 colors)</li>
+ <li>84x64 (framebuffer 4 colors)</li>
+ <li>96x64 (framebuffer 4 colors)</li>
+ <li>96x96 (tiles)</li>
+ <li>128x96 (tiles)</li>
+ <li>128x128 (tiles)</li>
+ <li>256x128 (tiles)</li>
+ <li>480x240 (tiles)</li>
+</ul>
  Tiles mode combination with framebuffer.<br>
  With code in JS and P5JS, video output can be simulated, allowing intermediate C code for Arduino, which can later be compiled and viewed in real chip.<br><br>
  It uses a hardware similar to the TVOUT of arduino, but with multiple improvements, to be able to support 16 shades of gray.<br><br>
