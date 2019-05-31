@@ -1,4 +1,4 @@
-# ArduinoVideoConsole demoscene
+# Arduino Video Console demoscene
 <h1>Retro diskmag EXILIUM port Arduino</h1>
 Video console emulate with Arduino
 
@@ -52,14 +52,16 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
 
 Videoconsola minima (un solo chip) ARDUINO (ATMEGA 328P) con salida de video TV (DAC R2R 4 bits 16 colours escala de grises), and sound (DAC R2R 4 bits)
 Emulador Parser en Javascript, que permite generar un juego con los diferentes modos de videos:
- - 84x48 (framebuffer 4 y 8 colores)
- - 84x64 (framebuffer 4 colores)
- - 96x64 (framebuffer 4 colores)
- - 96x96 (tiles)
- - 128x96 (tiles)
- - 128x128 (tiles)
- - 256x128 (tiles)
- - 480x240 (tiles)
+<ul>
+ <li>84x48 (framebuffer 4 y 8 colores)</li>
+ <li>84x64 (framebuffer 4 colores)</li>
+ <li>96x64 (framebuffer 4 colores)</li>
+ <li>96x96 (tiles)</li>
+ <li>128x96 (tiles)</li>
+ <li>128x128 (tiles)</li>
+ <li>256x128 (tiles)</li>
+ <li>480x240 (tiles)</li>
+ </ul>
  Combinacion de modo Tiles con framebuffer.
 
  Con codigo en JS y P5JS, se puede simular la salida de video, permitiendo generar código intermedio en C para Arduino, que posteriormente se puede compilar y ver en chip real.
