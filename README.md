@@ -50,6 +50,8 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
 
 
 
+<h1>State project</h1>
+In development
 
 
 Videoconsola minima (un solo chip) ARDUINO (ATMEGA 328P) con salida de video TV (DAC R2R 4 bits 16 colours escala de grises), and sound (DAC R2R 4 bits)
