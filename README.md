@@ -8,7 +8,7 @@ The sprite editing tool is allowed to use the background color with the right mo
 
 
 
-<h1>First prototype</h1>
+<h1>First prototype (deprecated)</h1>
 Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)<br>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola.png'>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola2.png'>
