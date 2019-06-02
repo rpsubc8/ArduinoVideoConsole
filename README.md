@@ -6,6 +6,9 @@ Video console emulate with Arduino
 You choose to use the Arduinocade hardware (https://github.com/rossumur/Arduinocade), and modify the libraries and utilities:
 The sprite editing tool is allowed to use the background color with the right mouse button, while the left is the foreground. This allows you to draw more quickly.
 
+Add support to load chr (base64 16 colours) in tile.
+<center><img src="previewArduinocade.png"></center>
+
 <h1>Hardware</h1>
 <ul>
  <li>Arduino atmega328</li>
