@@ -55,7 +55,65 @@ span {
 <input type="checkbox" id="palette_phase">Palette</input>
 <span> Rows: <input type="number" id="rows" min="8" value="24" max="128"/></span>
 <b id="info"></b>
+<br>	
+<span> 
+ Chr<input type="text" id="textchrbase64" min="10" value=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC"/>
+ <input type="button" id="btnchrbase64" value="Load CHR" onclick="LoadTileFromBase64();"/>
+</span>	
+<span>
+ Sprite<input type="text" id="textchrbase64" min="10" value=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII="/>
+ <input type="button" id="btnspritebase64" value="Load Sprite"/>
+</span>
+<canvas id="chrcanvasini" width="4" height="8"></canvas>
+<canvas id="chrcanvasfin" width="4" height="8"></canvas>
+<canvas id="spritecanvasini" width="128" height="64"></canvas>
+<canvas id="spritecanvasfin" width="128" height="64"></canvas>
 
+<script type="text/javascript">
+ //0,5,10,15 index black to white gray
+ function getPixel(imgData,index) {
+  var i= index*4, d= imgData.data;
+  //return [d[i],d[i+1],d[i+2],d[i+3]] // returns array [R,G,B,A]
+  return [Math.trunc((d[i]+d[i+1]+d[i+2])/3/16)] // returns array [R,G,B,A]
+ }
+
+ function getPixelXY(imgData,x,y){
+  return getPixel(imgData,(y*imgData.width+x));
+ }
+
+ var canvasini= document.getElementById("chrcanvasini");
+ var ctxini= canvasini.getContext("2d");
+ var canvasfin= document.getElementById("chrcanvasfin");
+ var ctxfin= canvasfin.getContext("2d");
+ var image= new Image();
+ image.src= " data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC";
+ image.onload= function(){  
+  ctxini.drawImage(image,0,0);  
+  var imgDataIni= ctxini.getImageData(0,0,canvasini.width,canvasini.height);
+  var imgDataFin= imgDataIni;
+  //data: [r,g,b,a,r,g,b,a,r,g,..]
+  var x,y,aux;
+  var cont=0;  
+  for (y=0;y<canvasini.height;y++){
+   for (x=0;x<canvasini.width;x++){    
+    aux=getPixelXY(imgDataIni,x,y);
+	imgDataFin[cont]=aux;
+	imgDataFin[cont+1]=aux;
+	imgDataFin[cont+2]=aux;
+	imgDataFin[cont+3]=255;
+	cont+=4;
+   }
+  }
+  ctxfin.putImageData(imgDataFin, 0, 0);
+ };
+ var canvasSpriteini= document.getElementById("spritecanvasini");
+ var ctxSpriteini= canvasSpriteini.getContext("2d");
+ var imgSprite= new Image();
+ imgSprite.src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII=";
+ imgSprite.onload= function(){
+  ctxSpriteini.drawImage(imgSprite,0,0);  
+ }
+</script>
 
 <table>
     <tr>
@@ -82,7 +140,7 @@ span {
 </table>
 <pre id='log'></pre>
 <script>
-
+	
  var MAP_WIDTH = 40;
  var MAP_HEIGHT = 24;
 
@@ -844,7 +902,7 @@ mouseable(_editor_canvas,editmouse);
 //Click bakcolor on palette canvas select 16 colours
 _palette_canvas.oncontextmenu   = function(e)
 {
-console.log('d');
+//console.log('d');
     var c = _current_color;	
 	c = _back_color;
     _back_color= mapClick(_palette_canvas,e,16);
@@ -855,7 +913,7 @@ console.log('d');
 //Click on palette canvas select 16 colours
 _palette_canvas.onclick = function(e)
 {
- console.log('i');
+ //console.log('i');
     var c = _current_color;	   
 	_current_color = mapClick(_palette_canvas,e,16);
     if (c != _current_color)
@@ -1320,6 +1378,32 @@ document.onkeydown = function(e)
             case 90: undo(); break;
         }
    }
+}
+
+
+
+//Load Tile
+function LoadTileFromBase64(){
+ var x,y;
+ 
+ var canvasini= document.getElementById("chrcanvasini");
+ var ctxini= canvasini.getContext("2d");   
+ var imgDataIni= ctxini.getImageData(0,0,canvasini.width,canvasini.height);  
+ //data: [r,g,b,a,r,g,b,a,r,g,..]
+ //var cad=''; 
+ var cont=0;
+ for (y=0;y<8;y++){  
+  for (x=0;x<4;x++){   
+   aux=getPixelXY(imgDataIni,x,y);
+   //cad=cad+aux+' ';
+   _tiles[(_current_tile*4*8)+cont] = aux;
+   cont++;
+  }
+ }
+ drawEditor();
+ drawTiles(_current_tile);
+ drawMap(_current_tile);
+ //console.log(cad);
 }
 
 </script>
