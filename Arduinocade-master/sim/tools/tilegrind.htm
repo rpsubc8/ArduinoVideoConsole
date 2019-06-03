@@ -57,17 +57,23 @@ span {
 <b id="info"></b>
 <br>	
 <span> 
- Chr<input type="text" id="textchrbase64" min="10" value=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC"/>
+ Chr<input type="text" id="textchrbase64" min="5" value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC"/>
  <input type="button" id="btnchrbase64" value="Load CHR" onclick="LoadTileFromBase64();"/>
 </span>	
 <span>
- Sprite<input type="text" id="textchrbase64" min="10" value=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII="/>
+ Sprite<input type="text" id="textspritebase64" min="5" value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII="/>
  <input type="button" id="btnspritebase64" value="Load Sprite"/>
+</span>
+<br>
+<span>
+ Map<input type="text" id="textmapbase64" min="5" value="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII="/>
+ <input type="button" id="btnmapbase64" value="Load Map" onclick="LoadMapFromBase64();"/>
 </span>
 <canvas id="chrcanvasini" width="4" height="8"></canvas>
 <canvas id="chrcanvasfin" width="4" height="8"></canvas>
-<canvas id="spritecanvasini" width="128" height="64"></canvas>
-<canvas id="spritecanvasfin" width="128" height="64"></canvas>
+<canvas id="spritecanvasini" width="16" height="16"></canvas>
+<!--<canvas id="mapcanvasini" width="160" height="192"></canvas>-->
+<canvas id="mapcanvasini" width="128" height="64"></canvas>
 
 <script type="text/javascript">
  //0,5,10,15 index black to white gray
@@ -86,7 +92,7 @@ span {
  var canvasfin= document.getElementById("chrcanvasfin");
  var ctxfin= canvasfin.getContext("2d");
  var image= new Image();
- image.src= " data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC";
+ image.src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAIBAMAAAAsHUM2AAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE2OjA2OjMyICswMTAw55u47AAAAAd0SU1FB+MGAg4GO5SCnQ8AAAAJcEhZcwAACvAAAArwAUKsNJgAAAAEZ0FNQQAAsY8L/GEFAAAABlBMVEUAAAD///+l2Z/dAAAAFUlEQVR42mNgYGAQFGAQACM4g4EBAAk3AMPalTNVAAAAAElFTkSuQmCC";
  image.onload= function(){  
   ctxini.drawImage(image,0,0);  
   var imgDataIni= ctxini.getImageData(0,0,canvasini.width,canvasini.height);
@@ -106,12 +112,21 @@ span {
   }
   ctxfin.putImageData(imgDataFin, 0, 0);
  };
+ 
  var canvasSpriteini= document.getElementById("spritecanvasini");
  var ctxSpriteini= canvasSpriteini.getContext("2d");
  var imgSprite= new Image();
- imgSprite.src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII=";
+ imgSprite.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE4OjUwOjIxICswMTAwnHZyWgAAAAd0SU1FB+MGAhAyLyPKNP8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAEZ0FNQQAAsY8L/GEFAAAAMFBMVEUAAAAaGholJSVISEiFhYV7e3tnZ2c8PDy0tLSoqKhcXFzX19fJycmampr////o6OjOC8s9AAAAiUlEQVR42mNgYGBguQskGNgKGLz/T2AQYWDpXTx79+G1dxgYPaZ6dLjOmMTAcL8zsiOzfwMDw7yOyI6Mvg8MrAYM3rsbGCSAupQ4djMpyDIwdzOwGzNwH2NgdtlxiGHHFjcGxiUeikqcLoEMDGUghtsCBgahFAEG1iQFoG0mAiAzgEABihkEwBgAezAhNKzXo9QAAAAASUVORK5CYII="; 
  imgSprite.onload= function(){
   ctxSpriteini.drawImage(imgSprite,0,0);  
+ }
+ 
+ var canvasMapini= document.getElementById("mapcanvasini");
+ var ctxMapini= canvasMapini.getContext("2d");
+ var imgMap= new Image();
+ imgMap.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAyBAMAAAA5A0HPAAAAB3RJTUUH4goYEjInH53h/AAAAAlwSFlzAAAK8AAACvABQqw0mAAAAARnQU1BAACxjwv8YQUAAAAwUExURQgICEJCQnt7e87OzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFYZJY8AAANUSURBVHjaTVWBleswCIP8BYy7QMELXO39d/uS7KTNu3d3TWUBQmBbz1Nvs6ioXtmr5php11qzwsy82w8Qn6snwFWjgMBJH5XAWa8fYJpHdLIBCEL8ASibMdAv8G0B6GYE5QQaSG8MBOB4gHwXCNl6jbFyrLmqmhKssax+gO4d56bjfc3OLFkgEgTIEGXjPhZX8dX6U9HgTmUZeml1Iz/WnEWAMnMXxD/NugBK/QZa4CtU0C6VXrlI6Tsxi745AUyHOBHJokQKzt52vbsoIgGMsZozpRnV+BZwdODfAZ50/6zxKDDIM3bsyie2gFKq2Yvt6SwhyMfgPLC/sDiccgCSD7Vd3QlW9gVGE6c+5oXoULvtyOjhoOaXdMzYpM56pCKKjh1ZlW9KUwxCUZsya72PhKCxcYvB/QDBSrU+zODqSDH7A4SPGyntfOQhajiXTN1h9OwMAG9AoPEAkfC009ZKZ5Kh53y5ZNz9P4zfhWvmGSzyRjb7OhxhQUhtOCOOmgVscuMv8A0hneJIVYzOBmoKoOQ9XDgJYCfzbtS1gaRSuwGUOsguTGOwe8+qkziydrb3BiIEXnAS1SSEDnUMU9nRmxtYeyLR2JtQ4jRZlR2HJg+j22uyDawx7rbi/Do9NMGqBdqwjvjJhQFcC82quAm0wLnEr1fdSHyLuNuALAlOsJX+euPQ+DBPGHClOJGMovu2DHTEyoFOEQqsZYUkSHYsDR/jRBmtgEjFDXePOMBcTQJ6wD4E/hkniZJzkQS7s7DKznjo6cnQLC30js2y4F6c1am823kQulvrbw/iUE6HW/fkncV4HjgrwMgpxnvVqz1LI+SDwsrUGm9o0xsaINEFyqGp/zxAZ6EcTFSNSYHDsKDGdDkABq9+gF1ZUFGtbmODvKPWi+uLKt/ZJbtNoTCkKMYopHRLNXhKH6aFGS9Jz90dJ+07nK4I22tlTs2OC9i+SijeAJTtR1BeS5ydy7gY4+aSczH5c19lixpkCwnOOXFvQfu3Ky9uOzVy1rZRNFpubWAExQcdfIRrpBO2bw8BjbtHt1NvsSfWWdLF+wgqc70ie/xce5uFmhntKbpijJQZTvJjnZmh4YNszgvi7WPqErwPn417M8n4/O1j34ECIvvGHf4fh0a9vXkBO3kAAAAASUVORK5CYII=";
+ imgMap.onload= function(){
+  ctxMapini.drawImage(imgMap,0,0);  
  }
 </script>
 
@@ -845,9 +860,11 @@ var _spritediv =
 "<input type='button' value='Raw'>" + 
 "<input type='button' value='Clone'>" + 
 "<input type='button' value='Delete'>" + 
-"<input type='button' value='Flip'><br/>" + 
-"<input type='text' value='{name}'><br/>" +
-"<canvas width='{width}' height='{height}'/>"
+"<input type='button' value='Flip'>" + 
+//"<input type='text' id='textloadsprite' min='10' value='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAK3RFWHRDcmVhdGlvbiBUaW1lAGRvbSAyIGp1biAyMDE5IDE4OjUwOjIxICswMTAwnHZyWgAAAAd0SU1FB+MGAhAyLyPKNP8AAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAEZ0FNQQAAsY8L/GEFAAAAMFBMVEUAAAAaGholJSVISEiFhYV7e3tnZ2c8PDy0tLSoqKhcXFzX19fJycmampr////o6OjOC8s9AAAAiUlEQVR42mNgYGBguQskGNgKGLz/T2AQYWDpXTx79+G1dxgYPaZ6dLjOmMTAcL8zsiOzfwMDw7yOyI6Mvg8MrAYM3rsbGCSAupQ4djMpyDIwdzOwGzNwH2NgdtlxiGHHFjcGxiUeikqcLoEMDGUghtsCBgahFAEG1iQFoG0mAiAzgEABihkEwBgAezAhNKzXo9QAAAAASUVORK5CYII='/>"+
+"<input type='button' id='btnLoadSprite' value='Load' onclick='LoadSpriteFromBase64();'>" + 
+"Name<input type='text' value='{name}'><br/>" +
+"<canvas width='{width}' height='{height}'/>"+
 "</div>";
 
 function drawSprites(update)
@@ -1404,6 +1421,135 @@ function LoadTileFromBase64(){
  drawTiles(_current_tile);
  drawMap(_current_tile);
  //console.log(cad);
+}
+
+
+//Set Pixel in Sprite
+/*function SetPixSprite(x,y,c){
+//        name:"untitled",
+//        row_bytes:16,
+//        height:16,
+//        x:16,
+//        y:8,
+//        data:d
+ var row_bytes=16;
+ var height=16; 
+		
+ if (x < 0 || x >= row_bytes*2)
+  return;
+ if (y < 0 || y >= height)
+  return;
+ var i = y*row_bytes + (x>>1);
+ if (x & 1)
+  c = (s.data[i] & 0xF0) | c;
+ else
+  c = (s.data[i] & 0x0F) | (c << 4);
+ s.data[i] = c;
+}*/
+
+
+/*function DrawSprite(){
+ var width = s.canvas.width;
+ var height = s.canvas.height;
+ var i = 0;
+ for (var y = 0; y < height/8; y++) {
+  for (var x = 0; x < width/16; x++) {
+   var c = s.getPix(x,y);
+   if (s.raw) {
+    for (var h = 0; h < 16; h+=4){
+     drawRect(s.ctx,c & 0x8 ? 15 : 0,x*16+h,y*8,4,8);
+     c <<= 1;
+    }
+   } 
+   else {
+    drawPix(s.ctx,c,x*2,y,8);
+    drawPix(s.ctx,c,x*2+1,y,8);
+   }
+  }
+ }
+}*/
+
+//Load Sprite
+function LoadSpriteFromBase64(){
+ var x,y;
+     s.div.sprite = s;
+    s.canvas = s.div.getElementsByTagName("canvas")[0];
+    s.ctx = s.canvas.getContext("2d");
+ 
+ var canvasini= document.getElementById("spritecanvasini");
+ var ctxini= canvasini.getContext("2d");   
+ var imgDataIni= ctxini.getImageData(0,0,canvasini.width,canvasini.height);  
+ //data: [r,g,b,a,r,g,b,a,r,g,..]
+ var cadLog=''; 
+ var cont=0;
+ for (y=0;y<16;y++){  
+  for (x=0;x<16;x++){   
+   aux=getPixelXY(imgDataIni,x,y);
+   cadLog=cadLog+aux+' ';
+   //SetPixSprite(x,y,aux);
+   drawRect(s.ctx,aux & 0x8 ? 15 : 0,x*16+h,y*8,4,8);
+   //_tiles[(_current_tile*4*8)+cont] = aux;
+   cont++;
+  }
+  cadLog=cadLog+'\n';
+ }
+ drawEditor();
+ drawTiles(_current_tile);
+ drawMap(_current_tile);
+ console.log(cadLog);
+}
+
+
+//Load Map
+function LoadMapFromBase64(){
+ //0,5,10,15 index black to white gray
+ var x,y;
+ 
+ var canvasini= document.getElementById("mapcanvasini");
+ var ctxini= canvasini.getContext("2d");   
+ var imgDataIni= ctxini.getImageData(0,0,canvasini.width,canvasini.height);  
+ //data: [r,g,b,a,r,g,b,a,r,g,..]
+ //var cadLog=''; 
+ var cont=0;
+ var cont_map=0;
+ 
+ for (k=0;k<8;k++)
+ {
+  for (j=0;j<20;j++)
+  {    
+   cont=0;
+   for (y=0+(k*8);y<(8+(k*8));y++){  
+    for (x=0+(j*4);x<(4+(j*4));x++){   
+     aux=getPixelXY(imgDataIni,x,y);     
+     //cadLog=cadLog+aux+' ';
+     aux=Math.trunc(aux/4);
+     if (aux==1)
+      aux= 5;
+	 else 
+      if (aux==2)
+       aux=10;
+	  else 
+       if (aux==3)
+        aux=15;
+     _tiles[(_current_tile*4*8)+cont] = aux;
+     cont++;
+    }
+    //cadLog=cadLog+'\n';  
+   }
+   
+   _map[cont_map] = _current_tile;         
+   cont_map=cont_map+1;
+   
+   drawEditor();
+   drawTiles(_current_tile);
+   drawMap(_current_tile);
+   //console.log(cadLog);
+   
+  
+   _current_tile=_current_tile+1;
+  }
+  cont_map=cont_map+20;
+ }
 }
 
 </script>
