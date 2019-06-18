@@ -54,6 +54,15 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
  It uses a hardware similar to the TVOUT of arduino, but with multiple improvements, to be able to support 16 shades of gray.<br><br>
  Old diskmag <a href='http://www.pouet.net/prod.php?which=5967'>EXILIUM</a> port for minimal hardware chip ATMEGA328 (32 KB) gfx text mode.
 
+Demostration with Arduino uno chino with ch340. Change power supply external to 5.2v to get hsync correct. cut the temples of the crystal to the minimum.
+<img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/arduinochinoAlimentacionExterna.jpg'><br> 
+
+<img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/chinocolor.jpg'><br> 
+
+
+ 
+
+
 
 
 <h1>State project</h1>
