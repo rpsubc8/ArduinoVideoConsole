@@ -41,7 +41,7 @@ Demostration with Arduino uno chino with ch340. Change power supply external to 
 
 <h1>Gamepad simple swith</h1>
 <center><img src="BotonesAtari.png"></center>
-I have made a trial version that uses 4 buttons in ground pullpup mode. I used the pins:
+I have made a trial version that uses 4 buttons in ground pullpup mode only for PACMAN game. I used the pins:
 <ul>
  <li>A0 (pin 14) UP</li>
  <li>A1 (pin 15) DOWN</li>
