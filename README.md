@@ -51,33 +51,34 @@ I have made a trial version that uses buttons in ground pullpup mode. I used the
 It is defined in the file config.h
 
 In file arduinocade.cpp, setup pullup input:
-<code>
-void setup()
-{
-    pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari
-    pinMode(pin_btn_down,INPUT_PULLUP); //Joystick DOWN atari
-    pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari
-    pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari  
-    ...
-}
+<ul>
+void setup()<br>
+{<br>
+    pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari<br>
+    pinMode(pin_btn_down,INPUT_PULLUP); //Joystick DOWN atari<br>
+    pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari<br>
+    pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari<br>
+    ...<br>
+}<br>
+</ul>
 </code>
 
 And file PACMAN.INO
-<code>
-byte ChooseDir(int dir, Sprite* s)
-{
- ....
-            if (choice[0] != 0x7FFF && (digitalRead(pin_btn_up)==LOW)) return MUp;
-            if (choice[1] != 0x7FFF && (digitalRead(pin_btn_left)==LOW)) return MLeft;
-            if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;
-            if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;
-}
-</code>
+<ul>
+byte ChooseDir(int dir, Sprite* s)<br>
+{<br>
+ ....<br>
+            if (choice[0] != 0x7FFF && (digitalRead(pin_btn_up)==LOW)) return MUp;<br>
+            if (choice[1] != 0x7FFF && (digitalRead(pin_btn_left)==LOW)) return MLeft;<br>
+            if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;<br>
+            if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;<br>
+}<br>
+</ul>
 
 Remove or comment call joystick IR and Intelligent Artificial
-<code>
- //test        if (_ai && *readJoy()) {
-</code>
+<ul>
+ //test        if (_ai && *readJoy()) {<br>
+</ul>
 
 
 
