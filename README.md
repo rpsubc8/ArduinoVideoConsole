@@ -45,7 +45,7 @@ I have made a trial version that uses buttons in ground pullpup mode. I used the
  <li>A0 (pin 14) UP</li>
  <li>A1 (pin 15) DOWN</li>
  <li>A2 (pin 16) LEFT</li>
- <li>A3 (pin 17) RIGTH</li>
+ <li>A3 (pin 17) RIGHT</li>
 </ul>
 
 It is defined in the file config.h
