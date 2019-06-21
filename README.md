@@ -80,18 +80,9 @@ Remove or comment call joystick IR and Intelligent Artificial
  //test        if (_ai && *readJoy()) {<br>
 </ul>
 
+I am currently developing a version that eliminates the entire keyboard library and infrared joysticks, saving us 570 bytes of flash and 20 bytes of RAM, but I have to test it well, since the original keyboard's reading is embedded in the interrupt routine for each generation of line, so it has to behave the same with the same times but without executing the same.
 
-
-
-
-
-
-
-
-
-
-
-
+<br><br><br><br><br><br>
 
 <h1>First prototype (deprecated)</h1>
 Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)<br>
