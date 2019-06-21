@@ -51,7 +51,7 @@ I have made a trial version that uses buttons in ground pullpup mode. I used the
 It is defined in the file config.h
 
 In file arduinocade.cpp, setup pullup input:
-
+<code>
 void setup()
 {
     pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari
@@ -59,12 +59,11 @@ void setup()
     pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari
     pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari  
     ...
-
 }
-
+</code>
 
 And file PACMAN.INO
-
+<code>
 byte ChooseDir(int dir, Sprite* s)
 {
  ....
@@ -73,10 +72,12 @@ byte ChooseDir(int dir, Sprite* s)
             if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;
             if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;
 }
-
+</code>
 
 Remove or comment call joystick IR and Intelligent Artificial
-//test        if (_ai && *readJoy()) {
+<code>
+ //test        if (_ai && *readJoy()) {
+</code>
 
 
 
