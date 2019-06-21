@@ -38,6 +38,59 @@ Demostration with Arduino uno chino with ch340. Change power supply external to 
  <li>resolution 160x192</li>
 </ul>
 
+
+<h1>Gamepad simple swith</h1>
+I have made a trial version that uses buttons in ground pullpup mode. I used the pins:
+<ul>
+ <li>A0 (pin 14) UP</li>
+ <li>A1 (pin 15) DOWN</li>
+ <li>A2 (pin 16) LEFT</li>
+ <li>A3 (pin 17) RIGTH</li>
+</ul>
+
+It is defined in the file config.h
+
+In file arduinocade.cpp, setup pullup input:
+
+void setup()
+{
+    pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari
+    pinMode(pin_btn_down,INPUT_PULLUP); //Joystick DOWN atari
+    pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari
+    pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari  
+    ...
+
+}
+
+
+And file PACMAN.INO
+
+byte ChooseDir(int dir, Sprite* s)
+{
+ ....
+            if (choice[0] != 0x7FFF && (digitalRead(pin_btn_up)==LOW)) return MUp;
+            if (choice[1] != 0x7FFF && (digitalRead(pin_btn_left)==LOW)) return MLeft;
+            if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;
+            if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;
+}
+
+
+Remove or comment call joystick IR and Intelligent Artificial
+//test        if (_ai && *readJoy()) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1>First prototype (deprecated)</h1>
 Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)<br>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola.png'>
