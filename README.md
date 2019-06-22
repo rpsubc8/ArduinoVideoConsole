@@ -99,7 +99,7 @@ I am currently developing a version that eliminates the entire keyboard library 
 I have made a trial version that uses original and clone NES controller (NESpad 1.2 library) for PACMAN game. I used the pins:
 
 <ul>
- <li>A0 (pin 14) srobe</li>
+ <li>A0 (pin 14) strobe</li>
  <li>A1 (pin 15) clk</li>
  <li>A2 (pin 16) data</li> 
 </ul>
