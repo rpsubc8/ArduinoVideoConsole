@@ -31,13 +31,20 @@ Game* current_game()   // TODO: Game member?
     return _current_game;
 }
 
+
 void setup()
-{
+{    
+   #ifdef _use_gamepad_atari
     pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari
     pinMode(pin_btn_down,INPUT_PULLUP); //Joystick DOWN atari
     pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari
     pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari
     //pinMode(pin_btn_fire,INPUT_PULLUP); //Joystick FIRE atari
+   #endif
+   
+   #ifdef _use_gamepad_nes
+    
+   #endif
   
     _current_game->init();
     video_start();

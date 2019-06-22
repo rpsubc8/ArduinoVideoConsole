@@ -2,11 +2,28 @@
 #ifndef __ARUINOCADE__H__
 #define __ARUINOCADE__H__
 
- #define pin_btn_up 14
- #define pin_btn_down 15
- #define pin_btn_left 16
- #define pin_btn_right 17
-// #define pin_btn_fire 18
+ //Joystick atari simple buttons pullup ground
+ #define _use_gamepad_atari
+ //gamepad nes
+ //#define _use_gamepad_nes
+ 
+ #ifdef _use_gamepad_atari
+  #define pin_btn_up 14
+  #define pin_btn_down 15
+  #define pin_btn_left 16
+  #define pin_btn_right 17
+  // #define pin_btn_fire 18
+ #endif
+ 
+ //color pin strobe blue
+ //color pin clock green
+ //color pin data yellow 
+ #ifdef _use_gamepad_nes
+  #define pin_nes_strobe 14
+  #define pin_nes_clock 15
+  #define pin_nes_data 16
+ #endif
+ 
 
 // If you want to build BALLBLASTER
 //#define BALLBLASTER_GAME

@@ -20,6 +20,7 @@
 // 5 on, 3 off
 // 1000->500 84 STEP -3
 // 500->1000 69 STEP 3
+#include <NESpad.h>
 #include "config.h"
 #include "music.h"
 #include "sprites.h"
@@ -38,6 +39,11 @@ typedef unsigned char byte;
 typedef unsigned short u16;
 typedef unsigned short ushort;
 typedef unsigned long u32;
+#endif
+
+#ifdef _use_gamepad_nes
+ NESpad nintendo = NESpad(pin_nes_strobe,pin_nes_clock,pin_nes_data);
+ byte state = 0;
 #endif
 
 extern uint16_t v_underflow;
@@ -484,10 +490,21 @@ public:
             if (choice[1] != 0x7FFF && (j & LEFT)) return MLeft;
             if (choice[2] != 0x7FFF && (j & DOWN)) return MDown;
             if (choice[3] != 0x7FFF && (j & RIGHT)) return MRight;*/
-            if (choice[0] != 0x7FFF && (digitalRead(pin_btn_up)==LOW)) return MUp;
-            if (choice[1] != 0x7FFF && (digitalRead(pin_btn_left)==LOW)) return MLeft;
-            if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;
-            if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;
+            #ifdef _use_gamepad_atari
+             if (choice[0] != 0x7FFF && (digitalRead(pin_btn_up)==LOW)) return MUp;
+             if (choice[1] != 0x7FFF && (digitalRead(pin_btn_left)==LOW)) return MLeft;
+             if (choice[2] != 0x7FFF && (digitalRead(pin_btn_down)==LOW)) return MDown;
+             if (choice[3] != 0x7FFF && (digitalRead(pin_btn_right)==LOW)) return MRight;
+            #endif
+            
+            #ifdef _use_gamepad_nes
+             state = nintendo.buttons();
+             if (choice[0] != 0x7FFF && (state & NES_UP)) return MUp;
+             if (choice[1] != 0x7FFF && (state & NES_LEFT)) return MLeft;
+             if (choice[2] != 0x7FFF && (state & NES_DOWN)) return MDown;
+             if (choice[3] != 0x7FFF && (state & NES_RIGHT)) return MRight;              
+            #endif             
+                        
             if (choice[4-dir] == 0x7FFF) {
                 if (dir != MStopped)
                     s->last_dir = dir;
