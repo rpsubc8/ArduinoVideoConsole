@@ -85,7 +85,7 @@ I am currently developing a version that eliminates the entire keyboard library 
 
 <br><br><br><br><br><br>
 
-<h1>First prototype (deprecated)</h1>
+<!--<h1>First prototype (deprecated)</h1>
 Minimum videoconsole (one chip) ARDUINO (ATMEGA 328P) with video TV output (DAC R2R 4 bits 16 colors grayscale), and sound (DAC R2R 4 bits)<br>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola.png'>
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previewVideoconsola2.png'>
@@ -105,16 +105,13 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
  With code in JS and P5JS, video output can be simulated, allowing intermediate C code for Arduino, which can later be compiled and viewed in real chip.<br><br>
  It uses a hardware similar to the TVOUT of arduino, but with multiple improvements, to be able to support 16 shades of gray.<br><br>
  Old diskmag <a href='http://www.pouet.net/prod.php?which=5967'>EXILIUM</a> port for minimal hardware chip ATMEGA328 (32 KB) gfx text mode.
-
- 
-
-
+-->
 
 
 <h1>State project</h1>
 In development
 
-
+<!--
 Videoconsola minima (un solo chip) ARDUINO (ATMEGA 328P) con salida de video TV (DAC R2R 4 bits 16 colours escala de grises), and sound (DAC R2R 4 bits)
 Emulador Parser en Javascript, que permite generar un juego con los diferentes modos de videos:
 <ul>
@@ -128,8 +125,9 @@ Emulador Parser en Javascript, que permite generar un juego con los diferentes m
  <li>480x240 (tiles)</li>
  </ul>
  Combinacion de modo Tiles con framebuffer.
+-->
+ <!--Con codigo en JS y P5JS, se puede simular la salida de video, permitiendo generar código intermedio en C para Arduino, que posteriormente se puede compilar y ver en chip real.-->
 
- Con codigo en JS y P5JS, se puede simular la salida de video, permitiendo generar código intermedio en C para Arduino, que posteriormente se puede compilar y ver en chip real.
-
- Se utiliza un hardware similar al TVOUT de arduino, pero con múltiples mejoras, al poder soportar 16 tonalidades de gris.
+ <!--Se utiliza un hardware similar al TVOUT de arduino, pero con múltiples mejoras, al poder soportar 16 tonalidades de gris.
  Se portará la vieja diskmag multiplataforma EXILIUM de mi grupo SLIDERS a un chip ATMEGA328 (32 KB).
+-->
