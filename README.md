@@ -50,17 +50,27 @@ I have made a trial version that uses 4 buttons in ground pullpup mode only for 
 </ul>
 
 It is defined in the file config.h
+<ul>
+ #ifdef _use_gamepad_atari<br>
+  #define pin_btn_up 14<br>
+  #define pin_btn_down 15<br>
+  #define pin_btn_left 16<br>
+  #define pin_btn_right 17<br>
+ #endif<br>
+</ul> 
 
 In file arduinocade.cpp, setup pullup input:
 <ul>
-void setup()<br>
-{<br>
+#ifdef _use_gamepad_atari<br>
+ void setup()<br>
+ {<br>
     pinMode(pin_btn_up,INPUT_PULLUP); //Joystick UP atari<br>
     pinMode(pin_btn_down,INPUT_PULLUP); //Joystick DOWN atari<br>
     pinMode(pin_btn_left,INPUT_PULLUP); //Joystick LEFT atari<br>
     pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari<br>
     ...<br>
-}<br>
+ }<br>
+ #endif<br>
 </ul>
 </code>
 
@@ -82,6 +92,47 @@ Remove or comment call joystick IR and Intelligent Artificial
 </ul>
 
 I am currently developing a version that eliminates the entire keyboard library and infrared joysticks, saving us 570 bytes of flash and 20 bytes of RAM, but I have to test it well, since the original keyboard's reading is embedded in the interrupt routine for each generation of line, so it has to behave the same with the same times but without executing the same.
+
+<br><br>
+<h1>NES controller</h1>
+<center><img src="gamepadnes.png"></center>
+I have made a trial version that uses original and clone NES controller (NESpad 1.2 library) for PACMAN game. I used the pins:
+
+<ul>
+ <li>A0 (pin 14) srobe</li>
+ <li>A1 (pin 15) clk</li>
+ <li>A2 (pin 16) data</li> 
+</ul>
+
+It is defined in the file config.h
+<ul>
+  #ifdef _use_gamepad_nes<br>
+  #define pin_nes_strobe 14<br>
+  #define pin_nes_clock 15<br>
+  #define pin_nes_data 16<br>
+ #endif<br>
+</ul>
+
+Copy library NesPad to arduino ide libraries.
+
+PACMAN.INO
+<ul>
+#include <NESpad.h>
+...
+#ifdef _use_gamepad_nes<br>
+ NESpad nintendo = NESpad(pin_nes_strobe,pin_nes_clock,pin_nes_data);<br>
+ byte state = 0;<br>
+#endif<br> 
+...
+            #ifdef _use_gamepad_nes<br>
+             state = nintendo.buttons();<br>
+             if (choice[0] != 0x7FFF && (state & NES_UP)) return MUp;<br>
+             if (choice[1] != 0x7FFF && (state & NES_LEFT)) return MLeft;<br>
+             if (choice[2] != 0x7FFF && (state & NES_DOWN)) return MDown;<br>
+             if (choice[3] != 0x7FFF && (state & NES_RIGHT)) return MRight;<br>            
+            #endif<br>
+</ul>
+
 
 <br><br><br><br><br><br>
 
