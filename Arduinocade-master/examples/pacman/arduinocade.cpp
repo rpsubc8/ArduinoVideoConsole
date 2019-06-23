@@ -20,6 +20,36 @@
 //==============================================================
 //==============================================================
 
+#ifdef _use_gamepad_nes
+ void NESstrobe(void)
+ {
+  digitalWrite(pin_nes_strobe,HIGH);
+  //delayMicroseconds(22); //12 ms in 28.6363 mhz = 1,78976875 = 21,477225 = 22 ms
+  digitalWrite(pin_nes_strobe,LOW);
+ }
+
+ inline byte NESshiftin(void)
+ {
+  byte ret = digitalRead(pin_nes_data);
+  //delayMicroseconds(22); //remove delay test
+  digitalWrite(pin_nes_clock,HIGH);
+  //delayMicroseconds(22);
+  digitalWrite(pin_nes_clock,LOW);
+  return ret;
+ }
+
+ byte NESreadButtons(void)
+ {
+  byte ret = 0;
+  byte i;
+  NESstrobe();
+  for (i = 0; i < 8; i++) {
+    ret |= NESshiftin() << i;
+  }
+  return ~ret;   
+ }
+#endif
+
 Game* _current_game = 0;
 Game::Game()
 {
@@ -31,7 +61,6 @@ Game* current_game()   // TODO: Game member?
     return _current_game;
 }
 
-
 void setup()
 {    
    #ifdef _use_gamepad_atari
@@ -41,9 +70,12 @@ void setup()
     pinMode(pin_btn_right,INPUT_PULLUP); //Joystick RIGHT atari
     //pinMode(pin_btn_fire,INPUT_PULLUP); //Joystick FIRE atari
    #endif
-   
+      
    #ifdef _use_gamepad_nes
-    
+    pinMode(pin_nes_strobe,OUTPUT);
+    pinMode(pin_nes_clock,OUTPUT);
+    pinMode(pin_nes_data,INPUT_PULLUP);
+    NESstrobe();
    #endif
   
     _current_game->init();

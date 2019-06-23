@@ -20,7 +20,7 @@
 // 5 on, 3 off
 // 1000->500 84 STEP -3
 // 500->1000 69 STEP 3
-#include <NESpad.h>
+//#include <NESpad.h>
 #include "config.h"
 #include "music.h"
 #include "sprites.h"
@@ -42,8 +42,11 @@ typedef unsigned long u32;
 #endif
 
 #ifdef _use_gamepad_nes
- NESpad nintendo = NESpad(pin_nes_strobe,pin_nes_clock,pin_nes_data);
- byte state = 0;
+ //NESpad nintendo = NESpad(pin_nes_strobe,pin_nes_clock,pin_nes_data);
+ byte nes_state = 0;
+ byte NESreadButtons(void);
+ byte NESshiftin(void);
+ void NESstrobe(void);
 #endif
 
 extern uint16_t v_underflow;
@@ -498,11 +501,11 @@ public:
             #endif
             
             #ifdef _use_gamepad_nes
-             state = nintendo.buttons();
-             if (choice[0] != 0x7FFF && (state & NES_UP)) return MUp;
-             if (choice[1] != 0x7FFF && (state & NES_LEFT)) return MLeft;
-             if (choice[2] != 0x7FFF && (state & NES_DOWN)) return MDown;
-             if (choice[3] != 0x7FFF && (state & NES_RIGHT)) return MRight;              
+             nes_state = NESreadButtons();
+             if (choice[0] != 0x7FFF && (nes_state & NES_UP)) return MUp;
+             if (choice[1] != 0x7FFF && (nes_state & NES_LEFT)) return MLeft;
+             if (choice[2] != 0x7FFF && (nes_state & NES_DOWN)) return MDown;
+             if (choice[3] != 0x7FFF && (nes_state & NES_RIGHT)) return MRight;              
             #endif             
                         
             if (choice[4-dir] == 0x7FFF) {

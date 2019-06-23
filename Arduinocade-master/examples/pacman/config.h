@@ -3,9 +3,9 @@
 #define __ARUINOCADE__H__
 
  //Joystick atari simple buttons pullup ground
- #define _use_gamepad_atari
+ //#define _use_gamepad_atari
  //gamepad nes
- //#define _use_gamepad_nes
+ #define _use_gamepad_nes
  
  #ifdef _use_gamepad_atari
   #define pin_btn_up 14
@@ -22,6 +22,15 @@
   #define pin_nes_strobe 14
   #define pin_nes_clock 15
   #define pin_nes_data 16
+ 
+  #define NES_A       B00000001
+  #define NES_B       B00000010
+  #define NES_SELECT  B00000100
+  #define NES_START   B00001000
+  #define NES_UP      B00010000
+  #define NES_DOWN    B00100000
+  #define NES_LEFT    B01000000
+  #define NES_RIGHT   B10000000  
  #endif
  
 
