@@ -117,16 +117,16 @@ At the beginning I used the library NESpad 1.2, but then I decided to make a cus
 
 PACMAN.INO
 <ul>
-#include <NESpad.h>
-...
+#include <NESpad.h><br>
+...<br>
 #ifdef _use_gamepad_nes<br> 
  byte state = 0;<br>
- byte nes_state = 0;
- byte NESreadButtons(void);
- byte NESshiftin(void);
- void NESstrobe(void);
-#endif<br> 
-...
+ byte nes_state = 0;<br>
+ byte NESreadButtons(void);<br>
+ byte NESshiftin(void);<br>
+ void NESstrobe(void);<br>
+#endif<br>
+...<br>
             #ifdef _use_gamepad_nes<br>
              nes_state = NESreadButtons();<br>
              if (choice[0] != 0x7FFF && (nes_state & NES_UP)) return MUp;<br>
@@ -136,6 +136,10 @@ PACMAN.INO
             #endif<br>
 </ul>
 
+<br><br>
+<h1>MEGADRIVE controller</h1>
+<center><img src="padmegadrive.png"></center>
+I have made a trial version that uses original and clone megadrive controller (Sega Controller library) for PACMAN game. I used the pins:
 
 <br><br><br><br><br><br>
 
