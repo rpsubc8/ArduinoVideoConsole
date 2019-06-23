@@ -113,23 +113,26 @@ It is defined in the file config.h
  #endif<br>
 </ul>
 
-Copy library NesPad to arduino ide libraries.
+At the beginning I used the library NESpad 1.2, but then I decided to make a custom code, to resize to 1 byte ram usage and 234 bytes of code. The code remove the delayMicroseconds, to test. It may be necessary in some gamepad.
 
 PACMAN.INO
 <ul>
 #include <NESpad.h>
 ...
-#ifdef _use_gamepad_nes<br>
- NESpad nintendo = NESpad(pin_nes_strobe,pin_nes_clock,pin_nes_data);<br>
+#ifdef _use_gamepad_nes<br> 
  byte state = 0;<br>
+ byte nes_state = 0;
+ byte NESreadButtons(void);
+ byte NESshiftin(void);
+ void NESstrobe(void);
 #endif<br> 
 ...
             #ifdef _use_gamepad_nes<br>
-             state = nintendo.buttons();<br>
-             if (choice[0] != 0x7FFF && (state & NES_UP)) return MUp;<br>
-             if (choice[1] != 0x7FFF && (state & NES_LEFT)) return MLeft;<br>
-             if (choice[2] != 0x7FFF && (state & NES_DOWN)) return MDown;<br>
-             if (choice[3] != 0x7FFF && (state & NES_RIGHT)) return MRight;<br>            
+             nes_state = NESreadButtons();<br>
+             if (choice[0] != 0x7FFF && (nes_state & NES_UP)) return MUp;<br>
+             if (choice[1] != 0x7FFF && (nes_state & NES_LEFT)) return MLeft;<br>
+             if (choice[2] != 0x7FFF && (nes_state & NES_DOWN)) return MDown;<br>
+             if (choice[3] != 0x7FFF && (nes_state & NES_RIGHT)) return MRight;<br>            
             #endif<br>
 </ul>
 
