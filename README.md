@@ -63,7 +63,7 @@ It is defined in the file config.h
 </ul> 
 
 <center><img src="paddb15atari.png"></center>
-I have converted a DB15 joystick from PC to db9 atari standard. I have desoldado all the active circuitry, and I have only left the buttons in passive mode to ground.
+I have converted a DB15 joystick from PC to db9 atari standard. I have removed all the active circuitry, and I have only left the buttons in passive mode to ground.<br>
 
 In file arduinocade.cpp, setup pullup input:
 <ul>
