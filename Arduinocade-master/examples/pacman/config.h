@@ -8,6 +8,24 @@
  #define _use_gamepad_nes
  
  #ifdef _use_gamepad_atari
+//   X  Right 
+//   |  |  Left 
+//   |  |  |  Back 
+//   |  |  |  |  Up 
+//   |  |  |  |  |                 
+//____________________            
+//\  o5 o4 o3 o2 o1  /             
+// \  o9 o8 o7 o6   /                
+//  ----------------                 
+//    |  |  |  |                   
+//    |  |  |  Fire      
+//    |  |  +5V            
+//    |  Ground 
+//    X 
+  //colour db9-1 UP orange
+  //colour db9-2 DOWN blue
+  //colour db9-3 LEFT red
+  //colour db9-4 RIGHT yellow 
   #define pin_btn_up 14
   #define pin_btn_down 15
   #define pin_btn_left 16
@@ -19,6 +37,16 @@
  //color pin clock green
  //color pin data yellow 
  #ifdef _use_gamepad_nes
+//    __________
+//	 /          |
+//	/       O 1 |   1 - Ground
+//  |           |   2 - Clock
+//  | 7 O   O 2 |   3 - Latch
+//	|           |	4 - Data Out
+//	| 6 O   O 3 |	5 - No Connection
+//	|           |   6 - No Connection
+//	| 5 O   O 4 |   7 - +5V
+//	|___________| 
   #define pin_nes_strobe 14
   #define pin_nes_clock 15
   #define pin_nes_data 16
