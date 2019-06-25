@@ -49,7 +49,7 @@ I have made a trial version that uses 4 buttons in ground pullpup mode only for 
  <li>A3 (pin 17) RIGHT</li>
 </ul>
 
-<center><img src="BotonesAtari.png"></center>
+<center><img src="cheetah125.png"></center>
 Support Atari db9. Test with Joy Cheetah 125+.
 
 It is defined in the file config.h
