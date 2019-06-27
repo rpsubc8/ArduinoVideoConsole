@@ -174,6 +174,8 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
 
 <h1>State project</h1>
 In development
+<img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/testpad.png'>
+I am developing a program to test an NES and ATARI command. I have reduced all the code to the minimum version, and I am even modifying the generation of sound waves to reduce the lookup table.
 
 <!--
 Videoconsola minima (un solo chip) ARDUINO (ATMEGA 328P) con salida de video TV (DAC R2R 4 bits 16 colours escala de grises), and sound (DAC R2R 4 bits)
