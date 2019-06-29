@@ -175,7 +175,11 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
 <h1>State project</h1>
 In development
 <img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/testpad.png'>
-I am developing a program to test an NES and ATARI command. I have reduced all the code to the minimum version, and I am even modifying the generation of sound waves to reduce the lookup table.
+I am developing a program to test an NES and ATARI controller. I have reduced all the code to the minimum version, and I am even modifying the generation of sound waves to reduce the lookup table.
+Check buttons nes controller (up, down, left, right, select, start, A, B).
+4348 bytes. Not data sound and kernel, and not ir keyboard and joysticks.
+Test in Arduino Duemilanove ATMEGA328p with mod bootloader 28 mhz mod.
+I am also developing a version that works with IDE 1.8.9, but for now it is 100% functional, since some visual defect of the tiles is generated.
 
 <!--
 Videoconsola minima (un solo chip) ARDUINO (ATMEGA 328P) con salida de video TV (DAC R2R 4 bits 16 colours escala de grises), and sound (DAC R2R 4 bits)
