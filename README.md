@@ -173,8 +173,16 @@ Parser emulator in Javascript, which allows you to generate a game with the diff
 
 
 <h1>Preview development</h1>
+Here are some previews with the new tool I've modified. It's not uploaded yet, since it has some bugs, but it allows to convert bitmaps up to 160x192 pixels into tiles with the exact arduinocade palette, deleted repeated. We can see the possibilities.
 <center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewMario1.png'></center>
-
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewMario2.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewArkanoid.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewBubble.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewContra.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewGalaga.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewBatman.png'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/previewGameover.png'></center>
+<br><br><br>
 
 <h1>State project</h1>
 In development
