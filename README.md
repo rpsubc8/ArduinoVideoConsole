@@ -14,6 +14,7 @@ Add support to load Map (automatic sprite to tiles and map 40x24).
 
 Demostration with Arduino uno chino with ch340. Change power supply external to 5.2v to get hsync correct. cut the temples of the crystal to the minimum.
 <center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/arduinochinoAlimentacionExterna.jpg'></center>
+<center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/previews/arduinouno.jpg'></center>
 
 <center><img src='https://github.com/rpsubc8/ArduinoVideoConsole/blob/master/chinocolor.jpg'></center>
 
