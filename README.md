@@ -22,16 +22,16 @@ Demostration with Arduino uno chino with ch340. Change power supply external to 
 <ul>
  <li>Arduino atmega328</li>
  <li>crystal 28.6363 Mhz</li>
- <li>crystal 16 Mhz</li>
+ <li>crystal 16 Mhz (optional switch)</li>
  <li>switch crystals</li>
- <li>i2C eprom 24LC256</li>
+ <li>i2C eprom 24LC256 (optional)</li>
  <li>1 rca video</li>
  <li>1 jack audio output mono</li>
  <li>gamepad atari 5 buttons</li>
  <li>gamepad nes</li>
  <li>gamepad snes</li>
- <li>audio input 1wire capacitor to transfer program</li>
- <li>bootloader i2c eprom</li>
+ <li>audio input 1wire capacitor to transfer program (optional)</li>
+ <li>bootloader i2c eprom (optional)</li>
  <li>16 colours up 27 colours opcional</li>
  <li>NTSC colour</li>
  <li>tilemap 40x24</li>
